@@ -20,8 +20,9 @@ class Validacoes{
         return moment(data, 'DD/MM/YYYY',true).isValid()
     }
 
-    static validaNumero(numero){
-        return (typeof numero) == "number"
+    static validaNumero(num){
+        const numero = parseFloat(num)
+        return numero == num
     }
 
 

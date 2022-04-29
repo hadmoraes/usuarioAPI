@@ -38,7 +38,7 @@ test("Verifica se o email contem @", ()=>{
 })
 
 /**
- * Testes para validacao de data
+ * Testes para validacao de data do tipo DD/MM/YYYY
  */
 
 
@@ -52,13 +52,13 @@ test("Verifica se a data esta no formato trocado YYYY/MM/DD", ()=>{
 
 
 /**
- * Testes para validacao de numero 
+ * Testes para validacao se a entrada é um numero 
  */
 
  test("Verifica se a entrada é um inteiro", ()=>{
-    expect(Validacoes.validaNumero(250)).toBe(true)
+    expect(Validacoes.validaNumero("250")).toBe(true)
 })
 
 test("Verifica se a entrada é um numero com ponto flutuante", ()=>{
-    expect(Validacoes.validaNumero(400.58)).toBe(true)
+    expect(Validacoes.validaNumero("400.58")).toBe(true)
 })
