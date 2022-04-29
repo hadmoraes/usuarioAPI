@@ -1,3 +1,5 @@
+import moment from "moment";
+
 class Validacoes{
 
     static validaNome(nome){
@@ -13,6 +15,15 @@ class Validacoes{
         const validacaoEmail =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return email.match(validacaoEmail) != null
     }
+
+    static validaData(data){
+        return moment(data, 'DD/MM/YYYY',true).isValid()
+    }
+
+    static validaNumero(numero){
+        return (typeof numero) == "number"
+    }
+
 
 }
 
