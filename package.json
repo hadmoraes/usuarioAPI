@@ -4,17 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node ./src/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "moment": "^2.29.3",
     "path": "^0.12.7",
     "sqlite3": "^5.0.5"
   },
-  "type":"module"
+  "type": "module",
+  "devDependencies": {
+    "jest": "^28.0.2"
+  }
 }

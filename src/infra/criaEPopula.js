@@ -1,4 +1,4 @@
-import DatabaseMetodos from "../util/DatabaseMetodos.js";
+import DatabaseMetodos from "../DAO/DatabaseMetodos.js";
 import moment from "moment";
 
 try{
