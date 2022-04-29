@@ -4,7 +4,7 @@ class UsuarioModel{
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.data_nascimento = dataNascimento;
+        this.data_nascimento = data_nascimento;
     }
 
     

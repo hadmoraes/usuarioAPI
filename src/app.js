@@ -2,7 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import DatabaseMetodos from "./DAO/DatabaseMetodos.js";
 import cors from "cors";
-import Usuario from "./controller/Usuario.js"
+import Usuarios from "./controller/Usuarios.js"
 
 dotenv.config();
 const app = express();
@@ -17,6 +17,6 @@ app.listen(port, ()=>{
     console.log(`O servidor está rodando na porta ${port}`);
 });
 
-Usuario.routers(app);
+Usuarios.routers(app);
 
 
