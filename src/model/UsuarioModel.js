@@ -1,10 +1,10 @@
 class UsuarioModel{
-    constructor(id,nome, email, telefone, dataNascimento){
+    constructor(id,nome, email, telefone, data_nascimento){
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
+        this.data_nascimento = dataNascimento;
     }
 
     
