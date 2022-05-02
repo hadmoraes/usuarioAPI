@@ -26,6 +26,10 @@ class Validacoes{
     }
 
 
+    static validaTurno(turno){
+        return (turno == "manhã" || turno == "manha" || turno == "tarde")
+    }
+
 }
 
 export default Validacoes;

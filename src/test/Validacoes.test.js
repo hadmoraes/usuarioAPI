@@ -55,10 +55,32 @@ test("Verifica se a data esta no formato trocado YYYY/MM/DD", ()=>{
  * Testes para validacao se a entrada é um numero 
  */
 
- test("Verifica se a entrada é um inteiro", ()=>{
+test("Verifica se a entrada é um inteiro", ()=>{
     expect(Validacoes.validaNumero("250")).toBe(true)
 })
 
 test("Verifica se a entrada é um numero com ponto flutuante", ()=>{
     expect(Validacoes.validaNumero("400.58")).toBe(true)
 })
+
+
+/**
+ * Testes para validacao do turno
+ * Aceito apenas manha/manhã ou tarde
+ */
+
+
+ test("Verifica se o turno é manhã", ()=>{
+    expect(Validacoes.validaTurno("manha")).toBe(true)
+})
+
+test("Verifica se o turno é manha", ()=>{
+    expect(Validacoes.validaTurno("manhã")).toBe(true)
+})
+
+test("Verifica se o turno é tarde", ()=>{
+    expect(Validacoes.validaTurno("tarde")).toBe(true)
+})
+
+
+
