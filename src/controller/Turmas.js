@@ -18,7 +18,7 @@ class Turmas{
         app.get("/turmas/:nome", async(req,res)=>{
             try {
                 const nome = req.params.nome;
-                const response = await DatabaseMetodosTurmas.listaPorId(nome);
+                const response = await DatabaseMetodosTurmas.listaPorNome(nome);
                 res.status(200).json(response);
             } catch (error) {
                 res.status(400).json({erro: error.message})
@@ -32,7 +32,7 @@ class Turmas{
                     const response = await DatabaseMetodosTurmas.popular(turma);
                     res.status(201).json(response);
                 }else{
-                    throw new Error("A requisição está fora dos padrões, favor rever")
+                    throw new Error("A requisição está fora dos padrões, favor ver documentacao")
                 }
 
             } catch (error) {
@@ -45,10 +45,10 @@ class Turmas{
                 if(true){
                     const nome = req.params.nome;
                     const turma = new TurmaModel(...Object.values(req.body));
-                    const response = await DatabaseMetodosTurmas.alteraPorId(nome,turma);
+                    const response = await DatabaseMetodosTurmas.alteraPorNome(nome,turma);
                     res.status(200).json(response)                    
                 }else{
-                    throw new Error("A requisição está fora dos padrões, favor rever")
+                    throw new Error("A requisição está fora dos padrões, favor ver documentacao")
                 }
 
             } catch (error) {
@@ -59,7 +59,7 @@ class Turmas{
         app.delete("/turmas/:nome", async (req,res)=>{
             try {
                 const nome = req.params.nome;
-                const response = await DatabaseMetodosTurmas.deletaPorId(nome);
+                const response = await DatabaseMetodosTurmas.deletaPorNome(nome);
                 res.status(200).json(response)
             } catch (error) {
                 res.status(400).json({erro: error.message})

@@ -16,6 +16,11 @@ class Validacoes{
         return email.match(validacaoEmail) != null
     }
 
+    static validaCPF(cpf){
+        const validacaoCPF = /^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})$/;
+        return (cpf.match(validacaoCPF) != null)
+    }
+
     static validaData(data){
         return moment(data, 'DD/MM/YYYY',true).isValid()
     }

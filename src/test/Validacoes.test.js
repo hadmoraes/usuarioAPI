@@ -37,6 +37,23 @@ test("Verifica se o email contem @", ()=>{
     expect(Validacoes.validaEmail('emailemail.br')).toBe(false)
 })
 
+
+/**
+ * Testes para validacao de cpf
+ */
+
+test("Verifica se o cpf é valido", ()=>{
+    expect(Validacoes.validaCPF('01234567891')).toBe(true)
+})
+
+test("Verifica se o cpf contem pelo menos 11 digitos", ()=>{
+    expect(Validacoes.validaCPF('0123456789')).toBe(false)
+})
+
+test("Verifica se o cpf aceita . ou -", ()=>{
+    expect(Validacoes.validaCPF('012.345.678-91')).toBe(true)
+})
+
 /**
  * Testes para validacao de data do tipo DD/MM/YYYY
  */

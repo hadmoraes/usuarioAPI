@@ -23,9 +23,9 @@ class DatabaseMetodosBoletins{
             turma_nome VARCHAR,
             disciplina VARCHAR,
             nota FLOAT,
-        FOREIGN KEY (docente_cpf) REFERENCES tabela_docentes(cpf),
-        FOREIGN KEY (aluno_cpf) REFERENCES tabela_alunos(cpf),
-        FOREIGN KEY (turma_nome) REFERENCES tabela_turmas(nome)
+        FOREIGN KEY (docente_cpf) REFERENCES docentes(cpf),
+        FOREIGN KEY (aluno_cpf) REFERENCES alunos(cpf),
+        FOREIGN KEY (turma_nome) REFERENCES turmas(nome)
           )
           `
           
@@ -41,7 +41,7 @@ class DatabaseMetodosBoletins{
     }
 
     static popular(boletim){
-        const query = `INSERT INTO tabela_boletins VALUES (?, ?, ?, ?, ?, ?)`;
+        const query = `INSERT INTO turmas VALUES (?, ?, ?, ?, ?, ?)`;
         const body = Object.values(boletim);
 
         return new Promise((resolve, reject) =>{
@@ -56,7 +56,7 @@ class DatabaseMetodosBoletins{
     }
 
     static listarTodos(){
-        const query = "SELECT * FROM tabela_boletins";
+        const query = "SELECT * FROM turmas";
         return new Promise((resolve, reject) =>{
             Database.all(query, (error, result)=>{
                 if(error){
@@ -69,7 +69,7 @@ class DatabaseMetodosBoletins{
     }
 
     static listaPorId(id){
-        const query = "SELECT * FROM tabela_boletins WHERE id = ?";
+        const query = "SELECT * FROM turmas WHERE id = ?";
         return new Promise((resolve, reject) => {
             Database.get(query, id, (error, result)=>{
                 if(error){
@@ -84,7 +84,7 @@ class DatabaseMetodosBoletins{
     }
 
     static alteraPorId(id,boletim){
-        const query = "UPDATE tabela_boletins SET (id, docente_cpf, aluno_cpf, turma_nome, disciplina, nota) = (?, ?, ?, ?, ?, ?) WHERE id=?";
+        const query = "UPDATE turmas SET (id, docente_cpf, aluno_cpf, turma_nome, disciplina, nota) = (?, ?, ?, ?, ?, ?) WHERE id=?";
         const body = Object.values(boletim);
         return new Promise ( (resolve, reject) =>{
             Database.run(query, [...body, id], (error)=>{
@@ -100,7 +100,7 @@ class DatabaseMetodosBoletins{
     }
 
     static deletaPorId(id){
-        const query = "DELETE FROM tabela_boletins WHERE id=?";
+        const query = "DELETE FROM turmas WHERE id=?";
         return new Promise((resolve, reject)=>{
             Database.run(query, id, (error)=>{
                 if(error){

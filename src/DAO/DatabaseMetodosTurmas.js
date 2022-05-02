@@ -39,7 +39,7 @@ class DatabaseMetodosTurmas{
 
 
     static popular(turma){
-        const query = `INSERT INTO tabela_turmas VALUES (?, ?, ?, ?, ?)`;
+        const query = `INSERT INTO turmas VALUES (?, ?, ?, ?, ?)`;
         const body = Object.values(turma);
 
         return new Promise((resolve, reject) =>{
@@ -54,7 +54,7 @@ class DatabaseMetodosTurmas{
     }
 
     static listarTodos(){
-        const query = "SELECT * FROM tabela_turmas";
+        const query = "SELECT * FROM turmas";
         return new Promise((resolve, reject) =>{
             Database.all(query, (error, result)=>{
                 if(error){
@@ -66,8 +66,8 @@ class DatabaseMetodosTurmas{
         })
     }
 
-    static listaPorId(nome){
-        const query = "SELECT * FROM tabela_turmas WHERE nome = ?";
+    static listaPorNome(nome){
+        const query = "SELECT * FROM turmas WHERE nome = ?";
         return new Promise((resolve, reject) => {
             Database.get(query, nome, (error, result)=>{
                 if(error){
@@ -81,8 +81,8 @@ class DatabaseMetodosTurmas{
 
     }
 
-    static alteraPorId(nome,turma){
-        const query = "UPDATE tabela_turmas SET (nome, curso_nome, data_inicio, data_final, turno) = (?, ?, ?, ?, ?) WHERE nome=?";
+    static alteraPorNome(nome,turma){
+        const query = "UPDATE turmas SET (nome, curso_nome, data_inicio, data_final, turno) = (?, ?, ?, ?, ?) WHERE nome=?";
         const body = Object.values(turma);
         return new Promise ( (resolve, reject) =>{
             Database.run(query, [...body, nome], (error, result)=>{
@@ -97,8 +97,8 @@ class DatabaseMetodosTurmas{
         )
     }
 
-    static deletaPorId(nome){
-        const query = "DELETE FROM tabela_turmas WHERE nome=?";
+    static deletaPorNome(nome){
+        const query = "DELETE FROM turmas WHERE nome=?";
         return new Promise((resolve, reject)=>{
             Database.run(query, nome, (error)=>{
                 if(error){
