@@ -1,0 +1,72 @@
+import TurmaModel from "../model/TurmaModel.js";
+import DatabaseMetodosTurmas from "../DAO/DatabaseMetodosTurmas.js";
+
+
+class Turmas{
+
+    static routers(app){
+
+        app.get("/turmas", async (req, res)=>{
+            try {
+                const response = await DatabaseMetodosTurmas.listarTodos();
+                res.status(200).json(response);
+            } catch (error) {
+                res.status(400).json({erro: error.message})
+            }
+        });
+
+        app.get("/turmas/:nome", async(req,res)=>{
+            try {
+                const nome = req.params.nome;
+                const response = await DatabaseMetodosTurmas.listaPorId(nome);
+                res.status(200).json(response);
+            } catch (error) {
+                res.status(400).json({erro: error.message})
+            }
+        });
+
+        app.post("/turmas", async (req,res)=>{
+            try {
+                if(true){
+                    const turma = new TurmaModel(...Object.values(req.body));
+                    const response = await DatabaseMetodosTurmas.popular(turma);
+                    res.status(201).json(response);
+                }else{
+                    throw new Error("A requisição está fora dos padrões, favor rever")
+                }
+
+            } catch (error) {
+                res.status(400).json({erro: error.message})
+            }
+        });
+
+        app.put("/turmas/:nome", async (req,res)=>{
+            try {
+                if(true){
+                    const nome = req.params.nome;
+                    const turma = new TurmaModel(...Object.values(req.body));
+                    const response = await DatabaseMetodosTurmas.alteraPorId(nome,turma);
+                    res.status(200).json(response)                    
+                }else{
+                    throw new Error("A requisição está fora dos padrões, favor rever")
+                }
+
+            } catch (error) {
+                res.status(400).json({erro: error.message})
+            }
+        });
+
+        app.delete("/turmas/:nome", async (req,res)=>{
+            try {
+                const nome = req.params.nome;
+                const response = await DatabaseMetodosTurmas.deletaPorId(nome);
+                res.status(200).json(response)
+            } catch (error) {
+                res.status(400).json({erro: error.message})
+            }
+        });
+
+    }
+}
+
+export default Turmas;
